@@ -1,0 +1,38 @@
+<th:block th:fragment="navbar">
+    <nav class="navbar navbar-toggleable-md navbar-wine">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand nav-link-white" href="/">Library</a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item disabled">
+                    <a class="nav-link nav-link-white" href="/">Home</a>
+                </li>
+                <li class="nav-item disabled">
+                    <div class="dropdown">
+                        <a class="nav-link nav-link-white dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/">Books</a>
+						
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="/books/show">Show</a>
+                            <a class="dropdown-item" href="/books/add-book">Add</a>
+                        </div>
+                       
+                    </div>
+                  <li class="nav-item disabled">
+                    <div class="dropdown">
+                      <a class="nav-link nav-link-white dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/">Authors</a>
+                       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="/authors/show">Show</a>
+                            <a class="dropdown-item" href="/authors/add-author">Add</a>
+                        </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+  
+   
+</th:block>

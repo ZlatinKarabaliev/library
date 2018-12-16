@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="fragments/head"></th:block>
+</head>
+<body>
+<div class="container-fluid">
+    <th:block th:replace="fragments/navbar"></th:block>
+    <div class="container mt-4">
+            <div class="container section negative-margin contact">
+		<div class="row">
+			<div class="col-sm-12">
+				<h2>Edit author</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6">
+				<form   th:object="${author}"  th:action="@{/authors/edit-author/{id}(id=${author.id})}" th:method="put">
+					<div class="form-group">
+						<label>Name</label>
+						<input th:field="${author.name}" type="text"/>
+					</div>
+					<div class="form-group">
+						<label>Country</label>
+						<input th:field="${author.country}" type="text" />
+					</div>
+					<div class="form-group right-align">
+						<button type = "submit" class="btn btn-ghost">Edit author</button>
+					</div>
+				</form>
+			</div>
+    	</div>
+	</div>
+	</div>
+</div>
+</body>
+</html>

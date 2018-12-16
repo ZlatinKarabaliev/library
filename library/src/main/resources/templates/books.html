@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="fragments/head"></th:block>
+</head>
+<body>
+<div class="container-fluid">
+    <th:block th:replace="fragments/navbar"></th:block>
+    <div class="container mt-5">
+        <h1><i th:text="${authorName}"></i> Books </h1>
+        <table class="table mt-5">
+            <thead>
+            <tr>
+                 <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Pages</th>
+                <th scope="col">Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="book,iter : ${books}" th:object="${books}">
+                <tr>
+                <th scope="row" th:text="${iter.index + 1}"></th>
+                    <td th:text="${book.title}"></td>
+                    <td th:text="${book.pages}"></td>
+                     <td th:text="${book.description}"></td>
+                  	 <td><a class="btn btn-secondary" th:href="@{/books/edit-book/{id}(id=${book.id})}">Edit</a></td>
+                     <td><form th:action="@{/books/delete-book/{id}(id=${book.id})}" th:method="delete" >
+					  <input type="hidden" name="_method" value="delete" />
+					  <button class="btn btn-secondary" type="submit">Delete</button>
+					</form>
+					</td>
+                </tr>
+               
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="fragments/head"></th:block>
+</head>
+<body>
+<div class="container-fluid">
+    <th:block th:replace="fragments/navbar"></th:block>
+    <div class="container mt-4">
+            <div class="container section negative-margin contact">
+		<div class="row">
+			<div class="col-sm-12">
+				<h2>Add book</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6">
+				<form action="#" th:object="${book}"  th:action="@{/books/add-book}" method="post" >
+					<div class="form-group">
+						<label>Title *</label>
+						<input th:field="${book.title}" type="text"/>
+					</div>
+					<div class="form-group">
+						<label>Pages *</label>
+						<input th:field="${book.pages}" type="text" />
+					</div>
+					<div class="form-group">
+						<label>Description *</label>
+						<input th:field="${book.description}" type="text" />
+					</div>
+					
+					<div class="form-group">						
+						<select name="author">
+							<option value="text" selected>Choose Author</option>
+							<option 
+								th:each="author : ${authors}" 
+								th:value="${author.id}" 
+								th:text="${author.name}"
+								th:selected="${book.author} ? (${author.id} == ${book.author.id}) : false"></option>							
+						</select>
+					</div>
+					<div class="form-group right-align">
+						<button type = "submit" class="btn btn-ghost" th:action="@{/books/add-book}">Add book</button>
+					</div>
+				</form>
+			</div>
+    </div>
+</div>
+</div></div>
+</body>
+</html>
